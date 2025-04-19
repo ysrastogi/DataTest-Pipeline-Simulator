@@ -7,43 +7,18 @@ setup(
     author="sudo_yaaash",
     author_email="yashr.official2022@gmail.com",
     url="https://github.com/yourusername/datatest-pipeline-simulator",
-    packages=find_packages(exclude=["tests", "tests.*"]),
+    packages=find_packages(),
+    include_package_data=True,
     python_requires=">=3.8",
     install_requires=[
-        "pyspark>=3.2.0",
-        "pytest>=6.0.0",
-        "pandas>=1.3.0",
-        "numpy>=1.20.0",
-        "PyYAML>=6.0",
         "click>=8.0.0",
-        "fastapi>=0.68.0",
-        "uvicorn>=0.15.0",
-        "streamlit>=1.9.0",
-        "matplotlib>=3.4.0",
-        "seaborn>=0.11.0",
-        "pyarrow>=5.0.0",
+        "pyspark>=3.0.0",
+        "pyyaml>=6.0",
     ],
-    extras_require={
-        "dev": [
-            "black",
-            "flake8",
-            "mypy",
-            "isort",
-            "pytest-cov",
-            "sphinx",
-            "pre-commit",
-        ],
-        "test": [
-            "pytest",
-            "pytest-mock",
-            "pytest-cov",
-        ],
-    },
-    entry_points={
-        "console_scripts": [
-            "datatest=interfaces.cli.commands:main",
-        ],
-    },
+    entry_points="""
+        [console_scripts]
+        datatest=src.cli.main:cli
+    """,
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
