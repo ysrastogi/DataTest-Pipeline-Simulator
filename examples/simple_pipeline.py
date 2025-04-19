@@ -14,15 +14,14 @@ from core import (
     Configuration,
     SparkSessionManager
 )
+from pyspark.sql.functions import upper, when
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
-# Create example data
 def create_sample_data():
     """Create sample data file for the example."""
     data_dir = Path(__file__).parent / "data"
@@ -42,7 +41,6 @@ def create_sample_data():
     logger.info(f"Created sample data at {csv_path}")
     return str(csv_path)
 
-# Define pipeline stages
 class DataLoadStage(PipelineStage):
     """Stage to load data from a file."""
     
@@ -51,7 +49,6 @@ class DataLoadStage(PipelineStage):
         file_path = input_data
         logger.info(f"Loading data from {file_path}")
         
-        # You could use Spark here, but for simplicity using pandas
         df = pd.read_csv(file_path)
         logger.info(f"Loaded {len(df)} rows of data")
         
@@ -63,15 +60,10 @@ class DataTransformStage(PipelineStage):
     def execute(self, input_data):
         """Apply transformations to the data."""
         df = input_data
-        
-        # Simple transformation - convert names to uppercase
         df["name"] = df["name"].str.upper()
-        
-        # Add a new column
         df["age_group"] = df["age"].apply(
             lambda x: "Young" if x < 30 else ("Middle-aged" if x < 40 else "Senior")
         )
-        
         logger.info(f"Transformed data with {len(df)} rows and {len(df.columns)} columns")
         return df
 
@@ -81,20 +73,12 @@ class DataValidationStage(PipelineStage):
     def execute(self, input_data):
         """Validate the transformed data."""
         df = input_data
-        
-        # Perform some validations
         validation_errors = []
-        
-        # Check for missing values
         missing_values = df.isnull().sum().sum()
         if missing_values > 0:
             validation_errors.append(f"Found {missing_values} missing values")
-        
-        # Check age range
         if df["age"].min() < 0 or df["age"].max() > 120:
             validation_errors.append("Age values outside valid range (0-120)")
-        
-        # Store validation results in metrics
         self.metrics["missing_values"] = missing_values
         self.metrics["validation_errors"] = validation_errors
         self.metrics["is_valid"] = len(validation_errors) == 0
@@ -108,16 +92,10 @@ class DataOutputStage(PipelineStage):
     def execute(self, input_data):
         """Save the processed data."""
         df = input_data
-        
-        # Create output directory
         output_dir = Path(__file__).parent / "output"
         output_dir.mkdir(exist_ok=True)
-        
-        # Save as CSV
         output_path = output_dir / "processed_data.csv"
         df.to_csv(output_path, index=False)
-        
-        # Create dataset object for the output
         output_dataset = Dataset(
             name="processed_data",
             path=str(output_path),
@@ -132,14 +110,32 @@ class DataOutputStage(PipelineStage):
         logger.info(f"Saved processed data to {output_path}")
         return output_dataset
 
+class SparkDataLoadStage(PipelineStage):
+    """Spark Stage to load data from a file."""
+    
+    def execute(self, input_data):
+        spark = SparkSessionManager().get_session()
+        return spark.read.csv(input_data, header=True, inferSchema=True)
+
+class SparkTransformStage(PipelineStage):
+    """Spark Stage to transform the data."""
+    
+    def execute(self, input_data):
+        df = input_data
+        df = df.withColumn("name", upper(df["name"]))
+        df = df.withColumn(
+            "age_group", 
+            when(df["age"] < 30, "Young")
+            .when(df["age"] < 40, "Middle-aged")
+            .otherwise("Senior")
+        )
+        return df
+
 def main():
     """Run the example pipeline."""
     logger.info("Starting simple pipeline example")
-    
-    # Create sample data
+
     data_path = create_sample_data()
-    
-    # Create pipeline stages
     load_stage = DataLoadStage(name="data_load")
     transform_stage = DataTransformStage(name="data_transform")
     validation_stage = DataValidationStage(name="data_validation")
@@ -160,7 +156,6 @@ def main():
     logger.info(f"Output dataset: {result.name} ({result.type.value})")
     logger.info(f"Output path: {result.path}")
     
-    # Show metrics from each stage
     for stage in pipeline.stages:
         logger.info(f"Stage '{stage.name}' metrics: {stage.metrics}")
     
