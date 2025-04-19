@@ -20,4 +20,5 @@ isort>=5.10.1
 pytest-cov>=3.0.0
 pytest-mock>=3.7.0
 sphinx>=4.5.0
-pre-commit>=2.19.0
+pre-commit>=2.19.0pytest>=7.0.0
+pytest-spark>=0.6.0
