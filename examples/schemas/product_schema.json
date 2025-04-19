@@ -1,0 +1,92 @@
+{
+  "fields": {
+    "product_id": {
+      "type": "integer",
+      "min": 10000,
+      "max": 99999,
+      "distribution": "uniform"
+    },
+    "product_name": {
+      "type": "string",
+      "min_length": 5,
+      "max_length": 50
+    },
+    "price": {
+      "type": "float",
+      "min": 0.99,
+      "max": 999.99,
+      "distribution": "uniform",
+      "decimals": 2
+    },
+    "inventory": {
+      "type": "integer",
+      "min": 0,
+      "max": 1000,
+      "distribution": "uniform"
+    },
+    "category": {
+      "type": "categorical",
+      "categories": [
+        "Electronics",
+        "Clothing",
+        "Home & Kitchen",
+        "Books",
+        "Toys",
+        "Sports",
+        "Beauty"
+      ]
+    },
+    "rating": {
+      "type": "categorical",
+      "categories": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "weights": [
+        0.05,
+        0.1,
+        0.2,
+        0.3,
+        0.35
+      ]
+    },
+    "created_at": {
+      "type": "datetime",
+      "start": "2020-01-01",
+      "end": "2023-12-31"
+    },
+    "updated_at": {
+      "type": "datetime",
+      "start": "2020-01-01",
+      "end": "2023-12-31"
+    },
+    "status": {
+      "type": "categorical",
+      "categories": [
+        "active",
+        "discontinued",
+        "out_of_stock"
+      ]
+    },
+    "tags": {
+      "type": "json_array",
+      "min_items": 1,
+      "max_items": 5,
+      "possible_values": [
+        "bestseller",
+        "new",
+        "sale",
+        "eco-friendly",
+        "limited-edition",
+        "handmade",
+        "imported",
+        "organic",
+        "premium",
+        "exclusive"
+      ]
+    }
+  }
+}

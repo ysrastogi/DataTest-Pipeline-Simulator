@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pipeline Test Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { padding: 20px; }
+        .summary-card { margin-bottom: 20px; }
+        .test-details { margin-top: 30px; }
+        .error-details { margin-top: 10px; }
+        .error-details pre { max-height: 200px; overflow-y: auto; background-color: #f8f9fa; padding: 10px; }
+        .progress { height: 30px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Pipeline Test Report</h1>
+        
+        <div class="row summary-card">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">Summary</div>
+                    <div class="card-body">
+                        <p><strong>Total Tests:</strong> 0</p>
+                        <p><strong>Passed:</strong> 0</p>
+                        <p><strong>Failed:</strong> 0</p>
+                        <p><strong>Errors:</strong> 0</p>
+                        <p><strong>Skipped:</strong> 0</p>
+                        <p><strong>Duration:</strong> 0.00s</p>
+                        <p><strong>Start Time:</strong> 2025-05-27 00:59:59</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">Pass Rate</div>
+                    <div class="card-body">
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" 
+                                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                0.0%
+                            </div>
+                        </div>
+                        
+                        <div class="row text-center">
+                            <div class="col">
+                                <div class="alert alert-success">
+                                    <h4>0</h4>
+                                    <span>Passed</span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="alert alert-danger">
+                                    <h4>0</h4>
+                                    <span>Failed</span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="alert alert-warning">
+                                    <h4>0</h4>
+                                    <span>Errors</span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="alert alert-secondary">
+                                    <h4>0</h4>
+                                    <span>Skipped</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-details">
+            <h2>Test Results</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Test Name</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Duration</th>
+                        <th>Tags</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

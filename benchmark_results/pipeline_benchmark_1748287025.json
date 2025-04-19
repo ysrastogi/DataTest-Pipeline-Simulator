@@ -1,0 +1,107 @@
+{
+  "config": {
+    "name": "pipeline_benchmark",
+    "description": "Benchmark for data processing pipeline",
+    "iterations": 5,
+    "parallel_runs": 1,
+    "warm_up_iterations": 1,
+    "parameters": {
+      "input_size": "large",
+      "partitions": 10
+    },
+    "tags": []
+  },
+  "run_id": "pipeline_benchmark_1748287025",
+  "start_time": 1748287025.7901871,
+  "end_time": 1748287029.390021,
+  "duration_seconds": 3.5998339653015137,
+  "iterations_results": [
+    {
+      "iteration": 1,
+      "success": false,
+      "start_time": 1748287029.389469,
+      "end_time": 1748287029.389554,
+      "duration_seconds": 8.511543273925781e-05,
+      "metrics": {
+        "pipeline_id": "pipeline_benchmark_iter_0",
+        "start_time": 1748287029.389476,
+        "end_time": 1748287029.389536,
+        "stages": [],
+        "total_duration_ms": 0.05984306335449219,
+        "peak_memory_mb": 0,
+        "avg_cpu_percent": 0
+      }
+    },
+    {
+      "iteration": 2,
+      "success": false,
+      "start_time": 1748287029.389647,
+      "end_time": 1748287029.389803,
+      "duration_seconds": 0.00015592575073242188,
+      "metrics": {
+        "pipeline_id": "pipeline_benchmark_iter_1",
+        "start_time": 1748287029.389654,
+        "end_time": 1748287029.389777,
+        "stages": [],
+        "total_duration_ms": 0.12302398681640625,
+        "peak_memory_mb": 0,
+        "avg_cpu_percent": 0
+      }
+    },
+    {
+      "iteration": 3,
+      "success": false,
+      "start_time": 1748287029.3898199,
+      "end_time": 1748287029.389878,
+      "duration_seconds": 5.817413330078125e-05,
+      "metrics": {
+        "pipeline_id": "pipeline_benchmark_iter_2",
+        "start_time": 1748287029.3898208,
+        "end_time": 1748287029.3898602,
+        "stages": [],
+        "total_duration_ms": 0.03933906555175781,
+        "peak_memory_mb": 0,
+        "avg_cpu_percent": 0
+      }
+    },
+    {
+      "iteration": 4,
+      "success": false,
+      "start_time": 1748287029.3898911,
+      "end_time": 1748287029.389951,
+      "duration_seconds": 5.984306335449219e-05,
+      "metrics": {
+        "pipeline_id": "pipeline_benchmark_iter_3",
+        "start_time": 1748287029.389892,
+        "end_time": 1748287029.3899362,
+        "stages": [],
+        "total_duration_ms": 0.04410743713378906,
+        "peak_memory_mb": 0,
+        "avg_cpu_percent": 0
+      }
+    },
+    {
+      "iteration": 5,
+      "success": false,
+      "start_time": 1748287029.389962,
+      "end_time": 1748287029.390008,
+      "duration_seconds": 4.601478576660156e-05,
+      "metrics": {
+        "pipeline_id": "pipeline_benchmark_iter_4",
+        "start_time": 1748287029.389963,
+        "end_time": 1748287029.389993,
+        "stages": [],
+        "total_duration_ms": 0.030040740966796875,
+        "peak_memory_mb": 0,
+        "avg_cpu_percent": 0
+      }
+    }
+  ],
+  "summary": {
+    "min_duration": 4.601478576660156e-05,
+    "max_duration": 0.00015592575073242188,
+    "avg_duration": 8.101463317871094e-05,
+    "total_duration": 0.0004050731658935547,
+    "iterations": 5
+  }
+}

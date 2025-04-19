@@ -1,0 +1,62 @@
+{
+  "fields": {
+    "customer_id": {
+      "type": "integer",
+      "min": 1,
+      "max": 100000,
+      "distribution": "uniform",
+      "unique": true
+    },
+    "email": {
+      "type": "string",
+      "min_length": 5,
+      "max_length": 100,
+      "unique": true,
+      "pattern": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}"
+    },
+    "phone": {
+      "type": "string",
+      "min_length": 1,
+      "max_length": 50,
+      "null_probability": 0.1,
+      "pattern": "\\d{3}-\\d{3}-\\d{4}"
+    },
+    "age": {
+      "type": "integer",
+      "min": 18,
+      "max": 100,
+      "distribution": "normal",
+      "mean": 35,
+      "std": 12
+    },
+    "income": {
+      "type": "float",
+      "min": 0,
+      "max": 250000,
+      "distribution": "uniform",
+      "null_probability": 0.2
+    },
+    "marital_status": {
+      "type": "categorical",
+      "categories": [
+        "single",
+        "married",
+        "divorced",
+        "widowed"
+      ],
+      "null_probability": 0.05
+    },
+    "credit_score": {
+      "type": "integer",
+      "min": 300,
+      "max": 850,
+      "distribution": "normal",
+      "mean": 680,
+      "std": 100,
+      "validation": {
+        "rule": "value >= 300 and value <= 850",
+        "message": "Credit score must be between 300 and 850"
+      }
+    }
+  }
+}

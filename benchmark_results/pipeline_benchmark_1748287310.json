@@ -1,0 +1,59 @@
+{
+  "config": {
+    "name": "pipeline_benchmark",
+    "description": "Benchmark for data processing pipeline",
+    "iterations": 2,
+    "parallel_runs": 1,
+    "warm_up_iterations": 0,
+    "parameters": {
+      "input_size": "small",
+      "partitions": 2
+    },
+    "tags": []
+  },
+  "run_id": "pipeline_benchmark_1748287310",
+  "start_time": 1748287310.944511,
+  "end_time": 1748287311.696811,
+  "duration_seconds": 0.7523000240325928,
+  "iterations_results": [
+    {
+      "iteration": 1,
+      "success": true,
+      "start_time": 1748287310.944541,
+      "end_time": 1748287311.339176,
+      "duration_seconds": 0.3946349620819092,
+      "metrics": {
+        "pipeline_id": "pipeline_benchmark_iter_0",
+        "start_time": 1748287310.944551,
+        "end_time": 1748287311.3391738,
+        "stages": [],
+        "total_duration_ms": 394.622802734375,
+        "peak_memory_mb": 0,
+        "avg_cpu_percent": 0
+      }
+    },
+    {
+      "iteration": 2,
+      "success": true,
+      "start_time": 1748287311.339224,
+      "end_time": 1748287311.696796,
+      "duration_seconds": 0.3575718402862549,
+      "metrics": {
+        "pipeline_id": "pipeline_benchmark_iter_1",
+        "start_time": 1748287311.339228,
+        "end_time": 1748287311.696794,
+        "stages": [],
+        "total_duration_ms": 357.56611824035645,
+        "peak_memory_mb": 0,
+        "avg_cpu_percent": 0
+      }
+    }
+  ],
+  "summary": {
+    "min_duration": 0.3575718402862549,
+    "max_duration": 0.3946349620819092,
+    "avg_duration": 0.37610340118408203,
+    "total_duration": 0.7522068023681641,
+    "iterations": 2
+  }
+}

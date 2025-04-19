@@ -1,0 +1,27 @@
+{
+  "fields": {
+    "order_id": {
+      "type": "integer",
+      "min": 10001,
+      "max": 99999,
+      "distribution": "uniform",
+      "unique": true
+    },
+    "customer_id": {
+      "type": "reference",
+      "reference_schema": "customer",
+      "reference_field": "customer_id"
+    },
+    "order_date": {
+      "type": "date",
+      "start": "2020-01-01",
+      "end": "2023-12-31"
+    },
+    "total_amount": {
+      "type": "float",
+      "min": 1.0,
+      "max": 1000.0,
+      "distribution": "uniform"
+    }
+  }
+}

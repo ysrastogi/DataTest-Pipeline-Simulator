@@ -6,6 +6,4 @@
 /schema/
 *.schema.json
 .DS_Store
-*.csv
 *.vscode
-*.json

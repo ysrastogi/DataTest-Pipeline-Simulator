@@ -1,0 +1,51 @@
+{
+  "fields": {
+    "user_id": {
+      "type": "integer",
+      "min": 1000,
+      "max": 9999,
+      "distribution": "uniform"
+    },
+    "account_balance": {
+      "type": "float",
+      "min": 0,
+      "max": 10000,
+      "distribution": "normal",
+      "mean": 2500,
+      "std": 1500,
+      "decimals": 2
+    },
+    "username": {
+      "type": "string",
+      "min_length": 5,
+      "max_length": 15
+    },
+    "email": {
+      "type": "string",
+      "min_length": 1,
+      "max_length": 50,
+      "pattern": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}"
+    },
+    "status": {
+      "type": "categorical",
+      "categories": [
+        "active",
+        "inactive",
+        "pending",
+        "suspended"
+      ],
+      "weights": [
+        0.7,
+        0.1,
+        0.15,
+        0.05
+      ]
+    },
+    "created_at": {
+      "type": "datetime",
+      "start": "2020-01-01",
+      "end": "2023-12-31",
+      "format": "%Y-%m-%d %H:%M:%S"
+    }
+  }
+}

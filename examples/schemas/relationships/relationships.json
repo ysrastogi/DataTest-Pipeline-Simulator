@@ -1,0 +1,23 @@
+{
+  "schemas": [
+    "customer",
+    "order",
+    "order_item"
+  ],
+  "relationships": [
+    {
+      "parent_schema": "customer",
+      "parent_field": "customer_id",
+      "child_schema": "order",
+      "child_field": "customer_id",
+      "relationship_type": "one_to_many"
+    },
+    {
+      "parent_schema": "order",
+      "parent_field": "order_id",
+      "child_schema": "order_item",
+      "child_field": "order_id",
+      "relationship_type": "one_to_many"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "fields": {
+    "customer_id": {
+      "type": "integer",
+      "min": 1,
+      "max": 1000,
+      "distribution": "uniform",
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "min_length": 3,
+      "max_length": 50
+    },
+    "email": {
+      "type": "string",
+      "min_length": 1,
+      "max_length": 50,
+      "pattern": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}"
+    }
+  }
+}

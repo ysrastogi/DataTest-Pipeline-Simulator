@@ -1,0 +1,2 @@
+[console_scripts]
+datatest = src.cli.main:cli
