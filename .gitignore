@@ -1,2 +1,8 @@
 *.pyc
 /__pycache__/
+/data/
+/generated_data/
+/outputs/
+/schema/
+*.schema.json
+.DS_Store
