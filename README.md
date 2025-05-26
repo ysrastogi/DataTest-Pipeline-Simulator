@@ -43,7 +43,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/datatest-pipeline-simulator.git
+git clone https://github.com/ysrastogi/DataTest-Pipeline-Simulator.git
 cd datatest-pipeline-simulator
 
 # Install dependencies
